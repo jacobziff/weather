@@ -35,25 +35,31 @@ function Forecast() {
   const currentDate = new Date();
   let hours = currentDate.getUTCHours();
 
+  let timezone = "America%2FLos_Angeles"
   if (lat == 33.45 && lng == -112.07) {
     city = "Phoenix, United States"
-  } else {
+  }
+  if (cityInfo) {
+    if (cityInfo.results) {
+      timezone = cityInfo.results[0].timezone
+      timezone = timezone.replaceAll('/', '%2F')
+      console.log(timezone)
+    }
   }
 
-  let url = "https://api.open-meteo.com/v1/forecast?latitude=".concat((lat.toString()).concat("&longitude=".concat((lng.toString()).concat("&current=temperature_2m,is_day,weather_code&hourly=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=America%2FLos_Angeles&forecast_days=16"))));
-
+  let url = `https://api.open-meteo.com/v1/forecast?latitude=${lat.toString()}&longitude=${lng.toString()}&current=temperature_2m,is_day,weather_code&hourly=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=${timezone}&forecast_days=16`;
+  console.log(url)
   useEffect(() => {
     axios.get(url).then(response => {
         setWeather(response.data);
     })
   }, [url])
 
-  console.log(hours);
-  console.log(weather.utc_offset_seconds);
-  console.log(weather.timezone)
-  hours += (-25200 / 3600)
-  console.log(hours);
-
+  if (weather) {
+    hours += (weather.utc_offset_seconds / 3600)
+  } else {
+    hours += (currentDate.getTimezoneOffset() / 3600)
+  }
 
   return (
     <div className="flex flex-col gap-y-8 p-4">
