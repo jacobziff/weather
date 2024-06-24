@@ -1,3 +1,13 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSun } from "@fortawesome/free-solid-svg-icons";
+import { faCloudSun } from "@fortawesome/free-solid-svg-icons";
+import { faCloud } from "@fortawesome/free-solid-svg-icons";
+import { faSmog } from "@fortawesome/free-solid-svg-icons";
+import { faCloudRain } from "@fortawesome/free-solid-svg-icons";
+import { faCloudShowersHeavy } from "@fortawesome/free-solid-svg-icons";
+import { faCloudBolt } from "@fortawesome/free-solid-svg-icons";
+import { faSnowflake } from "@fortawesome/free-solid-svg-icons";
+
 function wmoCode (number) {
     switch (number) {
         case 0:
@@ -46,6 +56,50 @@ function wmoCode (number) {
     }
 }
 
+function weatherIcon(number) {
+    switch (number) {
+        case 0:
+            return <FontAwesomeIcon icon={faSun}/>;
+        case 1:
+            return <FontAwesomeIcon icon={faCloudSun}/>;
+        case 2:
+        case 3:
+            return <FontAwesomeIcon icon={faCloud}/>;
+        case 45:
+        case 48:
+            return <FontAwesomeIcon icon={faSmog}/>;
+        case 51:
+        case 53:
+        case 55:
+        case 56:
+        case 57:
+        case 61:
+        case 63:
+        case 65:
+        case 66:
+        case 67:
+            return <FontAwesomeIcon icon={faCloudRain}/>;
+        case 71:
+        case 73:
+        case 75:
+        case 77:
+            return <FontAwesomeIcon icon={faSnowflake}/>;
+        case 80:
+        case 81:
+        case 82:
+            return <FontAwesomeIcon icon={faCloudShowersHeavy}/>;
+        case 85:
+        case 86:
+            return <FontAwesomeIcon icon={faSnowflake}/>;
+        case 95:
+        case 96:
+        case 99:
+            return <FontAwesomeIcon icon={faCloudBolt}/>;
+        default:
+            return <FontAwesomeIcon icon={faSun}/>;
+    }
+}
+
 function TopArea (props) {
         if (props.weather) {
             const currentDate = new Date();
@@ -61,17 +115,15 @@ function TopArea (props) {
             }
 
             let condition = wmoCode(props.weather.current.weather_code)
+            // condition = weatherIcon(props.weather.current.weather_code)
             
             return (
                 <div className="border-solid flex flex-col border-4 border-sky-500 justify-center">
-                    <h1 className="text-center">My Location</h1>
-                    <p className="text-center">[City Name] (Phoenix right now, no way to change)</p>
-                    <h2 className="text-center">{Math.round(temps[hours])}°F</h2>
-                    <p className="text-center">{condition}</p>
+                    <h1 className="text-center text-4xl">{props.city}</h1>
+                    <h2 className="text-center text-7xl">{Math.round(temps[hours])}°F</h2>
+                    <p className="text-center text-5xl">{condition}</p>
                     <div className="flex flex-row justify-center">
-                        <p className="text-center">H: {Math.round(hi)}°F</p>
-                        <p className="invisible">--</p>
-                        <p className="text-center">L: {Math.round(lo)}°F</p>
+                        <p className="text-center text-2xl">H: {Math.round(hi)}°F<a className="invisible text-2xl">--</a>L: {Math.round(lo)}°F<a className="invisible text-2xl">-</a></p>
                     </div>
                 </div>
             );
