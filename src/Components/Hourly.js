@@ -1,13 +1,12 @@
 import Hour from "./Hour";
 
 function Hourly (props) {
+
     if (props.weather) {
         let temps = props.weather.hourly.temperature_2m
         let times = props.weather.hourly.time
         let codes = props.weather.hourly.weather_code
-
-        const currentDate = new Date();
-        const hours = currentDate.getHours();
+        let hours = props.hours
 
         return (
             <div className="flex flex-row gap-7 px-3 py-1">

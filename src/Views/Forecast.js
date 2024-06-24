@@ -5,6 +5,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from 'react-router-dom';
+import { Key } from '../Key';
 
 function Forecast() {
 
@@ -14,7 +15,7 @@ function Forecast() {
   let cityurl = `https://geocoding-api.open-meteo.com/v1/search?name=${useParams().city}&count=1&language=en&format=json`;
   useEffect(() => {
     axios.get(cityurl).then(response => {
-        setCityInfo(response.data)
+      setCityInfo(response.data)
     })
   }, [cityurl])
 
@@ -31,22 +32,33 @@ function Forecast() {
     }
   }
 
+  const currentDate = new Date();
+  let hours = currentDate.getUTCHours();
+
   if (lat == 33.45 && lng == -112.07) {
     city = "Phoenix, United States"
+  } else {
   }
 
   let url = "https://api.open-meteo.com/v1/forecast?latitude=".concat((lat.toString()).concat("&longitude=".concat((lng.toString()).concat("&current=temperature_2m,is_day,weather_code&hourly=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=America%2FLos_Angeles&forecast_days=16"))));
 
   useEffect(() => {
     axios.get(url).then(response => {
-        setWeather(response.data)
+        setWeather(response.data);
     })
   }, [url])
+
+  console.log(hours);
+  console.log(weather.utc_offset_seconds);
+  console.log(weather.timezone)
+  hours += (-25200 / 3600)
+  console.log(hours);
+
 
   return (
     <div className="flex flex-col gap-y-8 p-4">
       <TopArea weather={weather} city={city}/>
-      <MiddleArea weather={weather}/>
+      <MiddleArea weather={weather} lat={lat} lng={lng} hours={hours}/>
       <BottomArea weather={weather}/>
     </div>
   );
