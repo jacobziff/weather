@@ -7,6 +7,7 @@ import { faCloudRain } from "@fortawesome/free-solid-svg-icons";
 import { faCloudShowersHeavy } from "@fortawesome/free-solid-svg-icons";
 import { faCloudBolt } from "@fortawesome/free-solid-svg-icons";
 import { faSnowflake } from "@fortawesome/free-solid-svg-icons";
+import Bar from "./Bar";
 
 function wmoCode (number) {
     switch (number) {
@@ -102,7 +103,13 @@ function weatherIcon(number) {
 
 function Day (props) {
     return (
-        <p>{props.dayOfWeek} {weatherIcon(props.weatherCode)} {Math.round(props.high)} / {Math.round(props.low)}</p>
+        <div className="grid grid-cols-4 items-center" id="individualday">
+            <span className="text-xl text-left px-3">{props.dayOfWeek}</span>
+            <span className="text-xl text-center px-3">{weatherIcon(props.weatherCode)}</span>
+            <span className="text-xl text-center px-3">{Math.round(props.low)}</span>
+            <Bar low={Math.round(props.low)} high={Math.round(props.high)} min={props.min} max={props.max}/>
+            <span className="text-xl text-center px-3">{Math.round(props.high)}</span>
+        </div>
     );
 }
 export default Day

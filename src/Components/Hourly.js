@@ -10,7 +10,7 @@ function Hourly (props) {
         const hours = currentDate.getHours();
 
         return (
-            <div className="flex flex-row gap-5">
+            <div className="flex flex-row gap-7 px-3 py-1">
                 <Hour time={"Now"} weatherCode={codes[hours]} temp={temps[hours]}/>
                 <Hour time={times[hours + 1]} weatherCode={codes[hours + 1]} temp={temps[hours + 1]}/>
                 <Hour time={times[hours + 2]} weatherCode={codes[hours + 2]} temp={temps[hours + 2]}/>

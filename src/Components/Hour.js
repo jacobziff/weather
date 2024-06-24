@@ -127,10 +127,10 @@ function timeSimple (time) {
 
 function Hour (props) {
     return (
-        <div className="flex flex-col">
-            <p>{timeSimple(props.time)}</p>
-            <p>{weatherIcon(props.weatherCode)}</p>
-            <p>{Math.round(props.temp)}</p>
+        <div className="flex flex-col justify-items-center">
+            <p className="text-center text-l">{timeSimple(props.time)}</p>
+            <p className="text-center text-2xl">{weatherIcon(props.weatherCode)}</p>
+            <p className="text-center text-xl">{Math.round(props.temp)}</p>
         </div>
     );
 }

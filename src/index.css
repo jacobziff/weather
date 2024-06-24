@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#individualday {
+    display: grid;
+    grid-template-columns: 2.5fr 2fr 2fr 5fr 1fr;
+}
