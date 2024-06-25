@@ -4,7 +4,7 @@
 
 #individualday {
     display: grid;
-    grid-template-columns: 2.5fr 2fr 2fr 5fr 1fr;
+    grid-template-columns: 70px 40px 60px 5fr 60px;
 }
 
 .coloring {
@@ -22,7 +22,7 @@
 }
 
 .bgimg-overcast {
-    background-image: url('./Images/anandu-vinod-unsplash.jpg');
+    background-image: url('./Images/joshua-reddekopp-unsplash.jpg');
     background-size: 300vw;
 }
 
@@ -43,4 +43,13 @@
 
 #searchbutton {
     color: black;
+}
+
+.loading {
+    height: 100%;
+    width: 100%;
+    background-image: url('./Images/loading.gif');
+    background-size: 80px 80px;
+    background-repeat: no-repeat;
+    background-position: center;
 }

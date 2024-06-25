@@ -41,7 +41,7 @@ function Daily (props) {
         }
 
         return (
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-3 py-1">
                 <Day dayOfWeek="Today" weatherCode={codes[0]} low={loTemps[0]} high={hiTemps[0]} min={minTemp} max={maxTemp}/>
                 {[1,2,3,4,5,6,7,8,9].map((num) =>
                     <Day dayOfWeek={numToDay(day + num)} weatherCode={codes[num]} low={loTemps[num]} high={hiTemps[num]} min={minTemp} max={maxTemp}/>

@@ -5,6 +5,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from 'react-router-dom';
+import Loading from '../Components/Loading';
 
 function Forecast() {
 
@@ -27,7 +28,11 @@ function Forecast() {
     if (cityInfo.results) {
       lat = cityInfo.results[0].latitude
       lng = cityInfo.results[0].longitude
-      city = cityInfo.results[0].name.concat(", ".concat(cityInfo.results[0].country))
+      let country = cityInfo.results[0].country
+      city = cityInfo.results[0].name
+      if (!(city == country || (!country))) {
+        city = city.concat(", ".concat(cityInfo.results[0].country)) 
+      }
     }
   }
 
@@ -40,8 +45,12 @@ function Forecast() {
   }
   if (cityInfo) {
     if (cityInfo.results) {
-      timezone = cityInfo.results[0].timezone
-      timezone = timezone.replaceAll('/', '%2F')
+      try {
+        timezone = cityInfo.results[0].timezone
+        timezone = timezone.replaceAll('/', '%2F')
+      } catch (error) {
+        timezone = "America%2FLos_Angeles"
+      }
     }
   }
 
@@ -90,7 +99,7 @@ function Forecast() {
     case 3:
     case 45:
     case 48:
-      color = `rgba(68, 68, 68, ${opacity})`
+      color = `rgba(144, 144, 144, ${opacity})`
       return <div className="bgimg-overcast">
         <div className="flex flex-col gap-y-8 p-4">
           <TopArea weather={weather} city={city} bgcolor={color}/>
@@ -145,12 +154,8 @@ function Forecast() {
         </div>
       </div>
     default:
-      return <div className="bgimg-sky">
-        <div className="flex flex-col gap-y-8 p-4">
-          <TopArea weather={weather} city={city} bgcolor={color}/>
-          <MiddleArea weather={weather} lat={lat} lng={lng} hours={hours} bgcolor={color}/>
-          <BottomArea weather={weather} bgcolor={color}/>
-        </div>
+      return <div>
+        <Loading/>
       </div>
   }
 }
