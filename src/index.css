@@ -6,3 +6,41 @@
     display: grid;
     grid-template-columns: 2.5fr 2fr 2fr 5fr 1fr;
 }
+
+.coloring {
+    color: white;
+}
+
+.bgimg-sky {
+    background-image: url('./Images/veronika-galkina-unsplash.jpg');
+    background-size: 300vw;
+}
+
+.bgimg-cloudy {
+    background-image: url('./Images/lucas-carl-unsplash.jpg');
+    background-size: 300vw;
+}
+
+.bgimg-overcast {
+    background-image: url('./Images/anandu-vinod-unsplash.jpg');
+    background-size: 300vw;
+}
+
+.bgimg-rain {
+    background-image: url('./Images/raul-angel-unsplash.jpg');
+    background-size: 300vh;
+}
+
+.bgimg-snow {
+    background-image: url('./Images/jessica-fadel-unsplash.jpg');
+    background-size: 300vh;
+}
+
+.bgimg-thunder {
+    background-image: url('./Images/michal-mancewicz-unsplash.jpg');
+    background-size: 300vh;
+}
+
+#searchbutton {
+    color: black;
+}

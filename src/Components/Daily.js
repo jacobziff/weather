@@ -43,15 +43,9 @@ function Daily (props) {
         return (
             <div className="flex flex-col gap-3">
                 <Day dayOfWeek="Today" weatherCode={codes[0]} low={loTemps[0]} high={hiTemps[0]} min={minTemp} max={maxTemp}/>
-                <Day dayOfWeek={numToDay(day + 1)} weatherCode={codes[1]} low={loTemps[1]} high={hiTemps[1]} min={minTemp} max={maxTemp}/>
-                <Day dayOfWeek={numToDay(day + 2)} weatherCode={codes[2]} low={loTemps[2]} high={hiTemps[2]} min={minTemp} max={maxTemp}/>
-                <Day dayOfWeek={numToDay(day + 3)} weatherCode={codes[3]} low={loTemps[3]} high={hiTemps[3]} min={minTemp} max={maxTemp}/>
-                <Day dayOfWeek={numToDay(day + 4)} weatherCode={codes[4]} low={loTemps[4]} high={hiTemps[4]} min={minTemp} max={maxTemp}/>
-                <Day dayOfWeek={numToDay(day + 5)} weatherCode={codes[5]} low={loTemps[5]} high={hiTemps[5]} min={minTemp} max={maxTemp}/>
-                <Day dayOfWeek={numToDay(day + 6)} weatherCode={codes[6]} low={loTemps[6]} high={hiTemps[6]} min={minTemp} max={maxTemp}/>
-                <Day dayOfWeek={numToDay(day + 7)} weatherCode={codes[7]} low={loTemps[7]} high={hiTemps[7]} min={minTemp} max={maxTemp}/>
-                <Day dayOfWeek={numToDay(day + 8)} weatherCode={codes[8]} low={loTemps[8]} high={hiTemps[8]} min={minTemp} max={maxTemp}/>
-                <Day dayOfWeek={numToDay(day + 9)} weatherCode={codes[9]} low={loTemps[9]} high={hiTemps[9]} min={minTemp} max={maxTemp}/>
+                {[1,2,3,4,5,6,7,8,9].map((num) =>
+                    <Day dayOfWeek={numToDay(day + num)} weatherCode={codes[num]} low={loTemps[num]} high={hiTemps[num]} min={minTemp} max={maxTemp}/>
+                )}
             </div>
         );
     }

@@ -61,13 +61,98 @@ function Forecast() {
     hours += 24
   }
 
-  return (
-    <div className="flex flex-col gap-y-8 p-4">
-      <TopArea weather={weather} city={city}/>
-      <MiddleArea weather={weather} lat={lat} lng={lng} hours={hours}/>
-      <BottomArea weather={weather}/>
-    </div>
-  );
+  let code = -1;
+  if (weather) {
+    code = weather.current.weather_code
+  }
+
+  let opacity = 0.7
+  let color = `rgba(4, 148, 252, ${opacity})`
+  switch(code) {
+    case 0:
+    case 1:
+      return <div className="bgimg-sky">
+        <div className="flex flex-col gap-y-8 p-4">
+          <TopArea weather={weather} city={city} bgcolor={color}/>
+          <MiddleArea weather={weather} lat={lat} lng={lng} hours={hours} bgcolor={color}/>
+          <BottomArea weather={weather} bgcolor={color}/>
+        </div>
+      </div>
+    case 2:
+      color = `rgba(54, 114, 182, ${opacity})`
+      return <div className="bgimg-cloudy">
+        <div className="flex flex-col gap-y-8 p-4">
+          <TopArea weather={weather} city={city} bgcolor={color}/>
+          <MiddleArea weather={weather} lat={lat} lng={lng} hours={hours} bgcolor={color}/>
+          <BottomArea weather={weather} bgcolor={color}/>
+        </div>
+      </div>
+    case 3:
+    case 45:
+    case 48:
+      color = `rgba(68, 68, 68, ${opacity})`
+      return <div className="bgimg-overcast">
+        <div className="flex flex-col gap-y-8 p-4">
+          <TopArea weather={weather} city={city} bgcolor={color}/>
+          <MiddleArea weather={weather} lat={lat} lng={lng} hours={hours} bgcolor={color}/>
+          <BottomArea weather={weather} bgcolor={color}/>
+        </div>
+      </div>
+    case 51:
+    case 53:
+    case 55:
+    case 56:
+    case 57:
+    case 61:
+    case 63:
+    case 65:
+    case 66:
+    case 67:
+    case 80:
+    case 81:
+    case 82:
+      color = `rgba(110, 127, 128, ${opacity})`
+      return <div className="bgimg-rain">
+        <div className="flex flex-col gap-y-8 p-4">
+          <TopArea weather={weather} city={city} bgcolor={color}/>
+          <MiddleArea weather={weather} lat={lat} lng={lng} hours={hours} bgcolor={color}/>
+          <BottomArea weather={weather} bgcolor={color}/>
+        </div>
+      </div>
+    case 71:
+    case 73:
+    case 75:
+    case 77:
+    case 85:
+    case 86:
+      color = `rgba(77, 75, 75, ${opacity})`
+      return <div className="bgimg-snow">
+        <div className="flex flex-col gap-y-8 p-4">
+          <TopArea weather={weather} city={city} bgcolor={color}/>
+          <MiddleArea weather={weather} lat={lat} lng={lng} hours={hours} bgcolor={color}/>
+          <BottomArea weather={weather} bgcolor={color}/>
+        </div>
+      </div>
+    case 95:
+    case 96:
+    case 99:
+      color = `rgba(27, 57, 91, ${opacity})`
+      return <div className="bgimg-thunder">
+        <div className="flex flex-col gap-y-8 p-4">
+          <TopArea weather={weather} city={city} bgcolor={color}/>
+          <MiddleArea weather={weather} lat={lat} lng={lng} hours={hours} bgcolor={color}/>
+          <BottomArea weather={weather} bgcolor={color}/>
+        </div>
+      </div>
+    default:
+      return <div className="bgimg-sky">
+        <div className="flex flex-col gap-y-8 p-4">
+          <TopArea weather={weather} city={city} bgcolor={color}/>
+          <MiddleArea weather={weather} lat={lat} lng={lng} hours={hours} bgcolor={color}/>
+          <BottomArea weather={weather} bgcolor={color}/>
+        </div>
+      </div>
+  }
 }
 
 export default Forecast;

@@ -128,11 +128,18 @@ function timeSimple (time) {
 }
 
 function Hour (props) {
+    let time = timeSimple(props.time)
+    let hour = time.substring(0, time.length - 2)
+    let ampm = time.substring(time.length - 2, time.length)
+    if (time == "Now") {
+        hour = "Now"
+        ampm = ""
+    }
     return (
         <div className="flex flex-col justify-items-center">
-            <p className="text-center text-l">{timeSimple(props.time)}</p>
-            <p className="text-center text-2xl">{weatherIcon(props.weatherCode)}</p>
-            <p className="text-center text-xl">{Math.round(props.temp)}</p>
+            <p className="text-center"><a className="text-xl">{hour}</a><a className="text-l">{ampm}</a></p>
+            <p className="text-center text-3xl">{weatherIcon(props.weatherCode)}</p>
+            <p className="text-center text-2xl">{Math.round(props.temp)}</p>
         </div>
     );
 }

@@ -118,7 +118,7 @@ function TopArea (props) {
             // condition = weatherIcon(props.weather.current.weather_code)
             
             return (
-                <div className="border-solid flex flex-col border-4 border-sky-500 justify-center">
+                <div className="coloring border-solid flex flex-col rounded-xl p-3 justify-center" style={{backgroundColor: `${props.bgcolor}`}}>
                     <h1 className="text-center text-4xl">{props.city}</h1>
                     <h2 className="text-center text-7xl">{Math.round(temps[hours])}°F</h2>
                     <p className="text-center text-5xl">{condition}</p>
