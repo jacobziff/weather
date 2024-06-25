@@ -26,12 +26,11 @@ function numToDay(num) {
 function Daily (props) {
     if (props.weather) {
         let info = props.weather.daily
-        let dates = info.time
         let codes = info.weather_code
         let hiTemps = info.temperature_2m_max
         let loTemps = info.temperature_2m_min
 
-        const currentDate = new Date();
+        const currentDate = new Date(props.weather.current.time);
         const day = currentDate.getDay();
 
         let minTemp = 1000;

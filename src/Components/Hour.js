@@ -106,7 +106,7 @@ function timeSimple (time) {
     }
     let n = time.length
     let i = n - 1
-    while (time[i] != 'T') {
+    while (i >= 0 && time[i] != 'T' && time[i] != ' ') {
         --i
     }
     let hourMin = time.substring(i + 1)
@@ -114,10 +114,12 @@ function timeSimple (time) {
     if (hour[0] == '0') {
         hour = hour.substring(1)
     }
-
     if (parseInt(hour) > 12) {
         let newHour = parseInt(hour) - 12
         return ((newHour.toString()).concat("PM"));
+    }
+    if (parseInt(hour) == 12) {
+        return "12PM"
     }
     if (hour == "0") {
         hour = "12"
