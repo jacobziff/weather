@@ -70,43 +70,83 @@ function Forecast() {
     hours += 24
   }
 
+  let isDay = true
   let code = -1;
   if (weather) {
     code = weather.current.weather_code
+    if (weather.current) {
+      if (weather.current.is_day == 0) {
+        isDay = false
+      }
+    }
   }
 
   let opacity = 0.7
+  let nightopacity = 0.5
   let color = `rgba(4, 148, 252, ${opacity})`
   switch(code) {
     case 0:
     case 1:
-      return <div className="bgimg-sky">
-        <div className="flex flex-col gap-y-8 p-4">
-          <TopArea weather={weather} city={city} bgcolor={color}/>
-          <MiddleArea weather={weather} lat={lat} lng={lng} hours={hours} bgcolor={color}/>
-          <BottomArea weather={weather} bgcolor={color}/>
+      if (isDay) {
+        return <div className="bgimg-sky">
+          <div className="flex flex-col gap-y-8 p-4">
+            <TopArea weather={weather} city={city} bgcolor={color}/>
+            <MiddleArea weather={weather} lat={lat} lng={lng} hours={hours} bgcolor={color}/>
+            <BottomArea weather={weather} bgcolor={color}/>
+          </div>
         </div>
-      </div>
+      } else {
+        color = `rgba(30, 34, 81, ${opacity})`
+        return <div className="bgimg-sky">
+          <div className="flex flex-col gap-y-8 p-4" style={{backgroundColor: `rgba(0, 0, 0, ${nightopacity})`}}>
+            <TopArea weather={weather} city={city} bgcolor={color}/>
+            <MiddleArea weather={weather} lat={lat} lng={lng} hours={hours} bgcolor={color}/>
+            <BottomArea weather={weather} bgcolor={color}/>
+          </div>
+        </div>
+      }
     case 2:
-      color = `rgba(54, 114, 182, ${opacity})`
-      return <div className="bgimg-cloudy">
-        <div className="flex flex-col gap-y-8 p-4">
-          <TopArea weather={weather} city={city} bgcolor={color}/>
-          <MiddleArea weather={weather} lat={lat} lng={lng} hours={hours} bgcolor={color}/>
-          <BottomArea weather={weather} bgcolor={color}/>
+      if (isDay) {
+        color = `rgba(54, 114, 182, ${opacity})`
+        return <div className="bgimg-cloudy">
+          <div className="flex flex-col gap-y-8 p-4">
+            <TopArea weather={weather} city={city} bgcolor={color}/>
+            <MiddleArea weather={weather} lat={lat} lng={lng} hours={hours} bgcolor={color}/>
+            <BottomArea weather={weather} bgcolor={color}/>
+          </div>
         </div>
-      </div>
+      } else {
+        color = `rgba(43, 67, 105, ${opacity})`
+        return <div className="bgimg-cloudy">
+          <div className="flex flex-col gap-y-8 p-4" style={{backgroundColor: `rgba(0, 0, 0, ${nightopacity})`}}>
+            <TopArea weather={weather} city={city} bgcolor={color}/>
+            <MiddleArea weather={weather} lat={lat} lng={lng} hours={hours} bgcolor={color}/>
+            <BottomArea weather={weather} bgcolor={color}/>
+          </div>
+        </div>
+      }
     case 3:
     case 45:
     case 48:
-      color = `rgba(144, 144, 144, ${opacity})`
-      return <div className="bgimg-overcast">
-        <div className="flex flex-col gap-y-8 p-4">
-          <TopArea weather={weather} city={city} bgcolor={color}/>
-          <MiddleArea weather={weather} lat={lat} lng={lng} hours={hours} bgcolor={color}/>
-          <BottomArea weather={weather} bgcolor={color}/>
+      if (isDay) {
+        color = `rgba(144, 144, 144, ${opacity})`
+        return <div className="bgimg-overcast">
+          <div className="flex flex-col gap-y-8 p-4">
+            <TopArea weather={weather} city={city} bgcolor={color}/>
+            <MiddleArea weather={weather} lat={lat} lng={lng} hours={hours} bgcolor={color}/>
+            <BottomArea weather={weather} bgcolor={color}/>
+          </div>
         </div>
-      </div>
+      } else {
+        color = `rgba(70, 70, 70, ${opacity})`
+        return <div className="bgimg-overcast">
+          <div className="flex flex-col gap-y-8 p-4" style={{backgroundColor: `rgba(0, 0, 0, ${nightopacity})`}}>
+            <TopArea weather={weather} city={city} bgcolor={color}/>
+            <MiddleArea weather={weather} lat={lat} lng={lng} hours={hours} bgcolor={color}/>
+            <BottomArea weather={weather} bgcolor={color}/>
+          </div>
+        </div>
+      }
     case 51:
     case 53:
     case 55:
@@ -120,39 +160,72 @@ function Forecast() {
     case 80:
     case 81:
     case 82:
-      color = `rgba(110, 127, 128, ${opacity})`
-      return <div className="bgimg-rain">
-        <div className="flex flex-col gap-y-8 p-4">
-          <TopArea weather={weather} city={city} bgcolor={color}/>
-          <MiddleArea weather={weather} lat={lat} lng={lng} hours={hours} bgcolor={color}/>
-          <BottomArea weather={weather} bgcolor={color}/>
+      if (isDay) {
+        color = `rgba(110, 127, 128, ${opacity})`
+        return <div className="bgimg-rain">
+          <div className="flex flex-col gap-y-8 p-4">
+            <TopArea weather={weather} city={city} bgcolor={color}/>
+            <MiddleArea weather={weather} lat={lat} lng={lng} hours={hours} bgcolor={color}/>
+            <BottomArea weather={weather} bgcolor={color}/>
+          </div>
         </div>
-      </div>
+      } else {
+        color = `rgba(70, 87, 88, ${opacity})`
+        return <div className="bgimg-rain">
+          <div className="flex flex-col gap-y-8 p-4" style={{backgroundColor: `rgba(0, 0, 0, ${nightopacity})`}}>
+            <TopArea weather={weather} city={city} bgcolor={color}/>
+            <MiddleArea weather={weather} lat={lat} lng={lng} hours={hours} bgcolor={color}/>
+            <BottomArea weather={weather} bgcolor={color}/>
+          </div>
+        </div>
+      }
     case 71:
     case 73:
     case 75:
     case 77:
     case 85:
     case 86:
-      color = `rgba(77, 75, 75, ${opacity})`
-      return <div className="bgimg-snow">
-        <div className="flex flex-col gap-y-8 p-4">
-          <TopArea weather={weather} city={city} bgcolor={color}/>
-          <MiddleArea weather={weather} lat={lat} lng={lng} hours={hours} bgcolor={color}/>
-          <BottomArea weather={weather} bgcolor={color}/>
+      if (isDay) {
+        color = `rgba(77, 75, 75, ${opacity})`
+        return <div className="bgimg-snow">
+          <div className="flex flex-col gap-y-8 p-4">
+            <TopArea weather={weather} city={city} bgcolor={color}/>
+            <MiddleArea weather={weather} lat={lat} lng={lng} hours={hours} bgcolor={color}/>
+            <BottomArea weather={weather} bgcolor={color}/>
+          </div>
         </div>
-      </div>
+      } else {
+        color = `rgba(40, 42, 42, ${opacity})`
+        return <div className="bgimg-snow">
+          <div className="flex flex-col gap-y-8 p-4" style={{backgroundColor: `rgba(0, 0, 0, ${nightopacity})`}}>
+            <TopArea weather={weather} city={city} bgcolor={color}/>
+            <MiddleArea weather={weather} lat={lat} lng={lng} hours={hours} bgcolor={color}/>
+            <BottomArea weather={weather} bgcolor={color}/>
+          </div>
+        </div>
+      }
     case 95:
     case 96:
     case 99:
-      color = `rgba(27, 57, 91, ${opacity})`
-      return <div className="bgimg-thunder">
-        <div className="flex flex-col gap-y-8 p-4">
-          <TopArea weather={weather} city={city} bgcolor={color}/>
-          <MiddleArea weather={weather} lat={lat} lng={lng} hours={hours} bgcolor={color}/>
-          <BottomArea weather={weather} bgcolor={color}/>
+      if (isDay) {
+        color = `rgba(27, 57, 91, ${opacity})`
+        return <div className="bgimg-thunder">
+          <div className="flex flex-col gap-y-8 p-4">
+            <TopArea weather={weather} city={city} bgcolor={color}/>
+            <MiddleArea weather={weather} lat={lat} lng={lng} hours={hours} bgcolor={color}/>
+            <BottomArea weather={weather} bgcolor={color}/>
+          </div>
         </div>
-      </div>
+      } else {
+        color = `rgba(2, 32, 66, ${opacity})`
+        return <div className="bgimg-thunder">
+          <div className="flex flex-col gap-y-8 p-4" style={{backgroundColor: `rgba(0, 0, 0, ${nightopacity})`}}>
+            <TopArea weather={weather} city={city} bgcolor={color}/>
+            <MiddleArea weather={weather} lat={lat} lng={lng} hours={hours} bgcolor={color}/>
+            <BottomArea weather={weather} bgcolor={color}/>
+          </div>
+        </div>
+      }
     default:
       return <div>
         <Loading/>
