@@ -60,6 +60,7 @@ function Home () {
                     <li className="py-1"><a className="text-blue-500 underline" href="https://unsplash.com/photos/a-lightning-bolt-is-seen-in-the-sky-R9L7ukhBSgs" target="_blank">Thunder Background</a></li>
                 </ul>
                 <p className="text-white text-l pt-1 pb-4 px-12">The design of the forecast layout was inspired by Apple's weather app.</p>
+                <p className="text-white text-l pt-1 pb-4 px-12">Data sourced from <a className="text-blue-500 underline" href="https://open-meteo.com/" target="_blank">Open Meteo API</a>.</p>
             </div>
         </div>
     );
