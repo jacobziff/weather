@@ -78,7 +78,6 @@ function Bar (props) {
     if (props.low == props.min && props.high == props.max) {
         return (
             <div style={{
-                background: `gray`,
                 background: `linear-gradient(90deg, ${startColor} ${start}%, ${endColor} ${end}%)`,
                 width: `100%`, height: `40%`, alignSelf: `center`, position: `relative`
             }}></div>
@@ -86,7 +85,6 @@ function Bar (props) {
     } else if (props.low == props.min) {
         return (
             <div style={{
-                background: `gray`,
                 background: `linear-gradient(90deg, ${startColor} ${start}%, ${endColor} ${end}%, lightgray ${end}%, lightgray 100%)`,
                 width: `100%`, height: `40%`, alignSelf: `center`, position: `relative`
             }}></div>
@@ -94,7 +92,6 @@ function Bar (props) {
     } else if (props.high == props.max) {
         return (
             <div style={{
-                background: `gray`,
                 background: `linear-gradient(90deg, lightgray 0%, lightgray ${start}%, ${startColor} ${start}%, ${endColor} ${end}%)`,
                 width: `100%`, height: `40%`, alignSelf: `center`, position: `relative`
             }}></div>
@@ -103,7 +100,6 @@ function Bar (props) {
 
     return (
         <div style={{
-            background: `gray`,
             background: `linear-gradient(90deg, lightgray 0%, lightgray ${start}%, ${startColor} ${start}%, ${endColor} ${end}%, lightgray ${end}%, lightgray 100%)`,
             width: `100%`, height: `40%`, alignSelf: `center`, position: `relative`
         }}></div>

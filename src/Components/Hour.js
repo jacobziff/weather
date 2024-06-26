@@ -136,10 +136,10 @@ function Hour (props) {
         ampm = ""
     }
     return (
-        <div className="flex flex-col justify-items-center">
+        <div key={props.num} className="flex flex-col justify-items-center">
             <p className="text-center"><a className="text-xl">{hour}</a><a className="text-l">{ampm}</a></p>
             <p className="text-center text-3xl">{weatherIcon(props.weatherCode)}</p>
-            <p className="text-center text-2xl">{Math.round(props.temp)}</p>
+            <p className="text-center text-2xl">{Math.round(props.temp).toString().concat("°")}</p>
         </div>
     );
 }

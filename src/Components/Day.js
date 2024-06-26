@@ -103,12 +103,12 @@ function weatherIcon(number) {
 
 function Day (props) {
     return (
-        <div className="grid grid-cols-4 items-center" id="individualday">
+        <div key={props.num} className="grid grid-cols-4 items-center" id="individualday">
             <span className="text-xl text-left px-3">{props.dayOfWeek}</span>
             <span className="text-xl text-center px-4">{weatherIcon(props.weatherCode)}</span>
-            <span className="text-xl text-center px-4">{Math.round(props.low)}</span>
+            <span className="text-xl text-center px-4">{(Math.round(props.low)).toString().concat("°")}</span>
             <Bar low={Math.round(props.low)} high={Math.round(props.high)} min={props.min} max={props.max}/>
-            <span className="text-xl text-center px-2">{Math.round(props.high)}</span>
+            <span className="text-xl text-center px-2">{(Math.round(props.high)).toString().concat("°")}</span>
         </div>
     );
 }

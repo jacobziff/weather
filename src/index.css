@@ -41,8 +41,17 @@
     background-size: 300vh;
 }
 
+.bgimg-home {
+    background-image: url('./Images/taylor-van-riper-unsplash.jpg');
+    background-size: 300vh;
+}
+
 #searchbutton {
     color: black;
+}
+
+#searchbutton2 {
+    color: white;
 }
 
 .loading {
