@@ -783,37 +783,37 @@ video {
 
 .bgimg-sky {
     background-image: url('./Images/veronika-galkina-unsplash.jpg');
-    background-size: 300vw;
+    background-size: 250vh;
 }
 
 .bgimg-cloudy {
     background-image: url('./Images/lucas-carl-unsplash.jpg');
-    background-size: 300vw;
+    background-size: 250vh;
 }
 
 .bgimg-overcast {
     background-image: url('./Images/joshua-reddekopp-unsplash.jpg');
-    background-size: 300vw;
+    background-size: 200vh;
 }
 
 .bgimg-rain {
     background-image: url('./Images/raul-angel-unsplash.jpg');
-    background-size: 300vh;
+    background-size: 200vh;
 }
 
 .bgimg-snow {
     background-image: url('./Images/jessica-fadel-unsplash.jpg');
-    background-size: 300vh;
+    background-size: 200vh;
 }
 
 .bgimg-thunder {
     background-image: url('./Images/michal-mancewicz-unsplash.jpg');
-    background-size: 300vh;
+    background-size: 200vh;
 }
 
 .bgimg-home {
     background-image: url('./Images/taylor-van-riper-unsplash.jpg');
-    background-size: 300vh;
+    background-size: 200vh;
 }
 
 #searchbutton {
