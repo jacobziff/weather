@@ -13,37 +13,37 @@
 
 .bgimg-sky {
     background-image: url('./Images/veronika-galkina-unsplash.jpg');
-    background-size: 300vw;
+    background-size: 450vw;
 }
 
 .bgimg-cloudy {
     background-image: url('./Images/lucas-carl-unsplash.jpg');
-    background-size: 300vw;
+    background-size: 450vw;
 }
 
 .bgimg-overcast {
     background-image: url('./Images/joshua-reddekopp-unsplash.jpg');
-    background-size: 300vw;
+    background-size: 450vw;
 }
 
 .bgimg-rain {
     background-image: url('./Images/raul-angel-unsplash.jpg');
-    background-size: 300vh;
+    background-size: 450vw;
 }
 
 .bgimg-snow {
     background-image: url('./Images/jessica-fadel-unsplash.jpg');
-    background-size: 300vh;
+    background-size: 450vw;
 }
 
 .bgimg-thunder {
     background-image: url('./Images/michal-mancewicz-unsplash.jpg');
-    background-size: 300vh;
+    background-size: 450vw;
 }
 
 .bgimg-home {
     background-image: url('./Images/taylor-van-riper-unsplash.jpg');
-    background-size: 300vh;
+    background-size: 250vw;
 }
 
 #searchbutton {
