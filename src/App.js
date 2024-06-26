@@ -21,8 +21,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home/>}></Route>
           <Route exact path="/weather/" element={<Home/>}></Route>
-          <Route exact path="/weather/forecast/" element={<Home/>}></Route>
-          <Route path="/weather/forecast/:city" element={<Forecast/>}></Route>
+          <Route path="/weather/:city" element={<Forecast/>}></Route>
         </Routes>
       </Router>
       <Footer/>

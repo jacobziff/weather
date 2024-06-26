@@ -15,7 +15,7 @@ function Search () {
                 <input className="border-black border-2 px-1 rounded m-3 w-2/5 h-12 text-xl" id="searchfield2"
                     onKeyDown={(e) => 
                         {if (e.key == 'Enter') {
-                            navigate(`/weather/forecast/${document.getElementById('searchfield2').value}`);
+                            navigate(`/weather/${document.getElementById('searchfield2').value}`);
                             document.getElementById('searchfield2').value = "";
                             e.target.blur()
                         }}
@@ -24,7 +24,7 @@ function Search () {
             <div>
                 <FontAwesomeIcon icon={faMagnifyingGlass} id="searchbutton2" className="text-2xl"
                     onClick={() => {
-                        navigate(`/weather/forecast/${document.getElementById('searchfield2').value}`);
+                        navigate(`/weather/${document.getElementById('searchfield2').value}`);
                         document.getElementById('searchfield2').value = ""
                     }}
                 />

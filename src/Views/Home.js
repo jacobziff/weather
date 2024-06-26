@@ -23,27 +23,27 @@ function Home () {
             <div className="flex flex-wrap justify-evenly px-10 pb-24">
                 <a className={properties} style={{backgroundColor: `${bg}`}}
                     onClick={() => {
-                        navigate(`/weather/forecast/New York`)
+                        navigate(`/weather/New York`)
                     }}>New York</a>
                 <a className={properties} style={{backgroundColor: `${bg}`}}
                     onClick={() => {
-                        navigate(`/weather/forecast/London`)
+                        navigate(`/weather/London`)
                     }}>London</a>
                 <a className={properties} style={{backgroundColor: `${bg}`}}
                     onClick={() => {
-                        navigate(`/weather/forecast/Paris`)
+                        navigate(`/weather/Paris`)
                     }}>Paris</a>
                 <a className={properties} style={{backgroundColor: `${bg}`}}
                     onClick={() => {
-                        navigate(`/weather/forecast/Tokyo`)
+                        navigate(`/weather/Tokyo`)
                     }}>Tokyo</a>
                 <a className={properties} style={{backgroundColor: `${bg}`}}
                     onClick={() => {
-                        navigate(`/weather/forecast/Beijing`)
+                        navigate(`/weather/Beijing`)
                     }}>Beijing</a>
                 <a className={properties} style={{backgroundColor: `${bg}`}}
                     onClick={() => {
-                        navigate(`/weather/forecast/Moscow`)
+                        navigate(`/weather/Moscow`)
                     }}>Moscow</a>
             </div>
             <div className="border-y-2 border-gray-600" style={{backgroundColor: `rgba(50,50,50,1)`}}>
