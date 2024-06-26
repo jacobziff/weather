@@ -20,14 +20,15 @@ function Header () {
                 <input className="border-black border-2 w-3/4 rounded px-1 my-2 mx-2" id="searchfield"
                     onKeyDown={(e) => 
                         {if (e.key == 'Enter') {
-                            navigate(`/forecast/${document.getElementById('searchfield').value}`);
-                            document.getElementById('searchfield').value = ""
+                            navigate(`/weather/forecast/${document.getElementById('searchfield').value}`);
+                            document.getElementById('searchfield').value = "";
+                            e.target.blur()
                         }}
                     }
                 ></input>
                 <FontAwesomeIcon icon={faMagnifyingGlass} id="searchbutton" className="mr-1"
                     onClick={() => {
-                        navigate(`/forecast/${document.getElementById('searchfield').value}`);
+                        navigate(`/weather/forecast/${document.getElementById('searchfield').value}`);
                         document.getElementById('searchfield').value = ""
                     }}
                 />
