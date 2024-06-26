@@ -1,15 +1,23 @@
 {
   "files": {
-    "main.css": "/weather/static/css/main.8a0729ea.css",
-    "main.js": "/weather/static/js/main.cdfd2365.js",
+    "main.css": "/weather/static/css/main.1224c878.css",
+    "main.js": "/weather/static/js/main.0255314b.js",
     "static/js/453.97127cc3.chunk.js": "/weather/static/js/453.97127cc3.chunk.js",
+    "static/media/lucas-carl-unsplash.jpg": "/weather/static/media/lucas-carl-unsplash.f8fd77d545f4a40ceee3.jpg",
+    "static/media/jessica-fadel-unsplash.jpg": "/weather/static/media/jessica-fadel-unsplash.bb9013308d1c0b13fcba.jpg",
+    "static/media/raul-angel-unsplash.jpg": "/weather/static/media/raul-angel-unsplash.dd6e001cf5a4977bff59.jpg",
+    "static/media/michal-mancewicz-unsplash.jpg": "/weather/static/media/michal-mancewicz-unsplash.255e03addfc45ccafc25.jpg",
+    "static/media/veronika-galkina-unsplash.jpg": "/weather/static/media/veronika-galkina-unsplash.352cf0f42e164ba466a3.jpg",
+    "static/media/joshua-reddekopp-unsplash.jpg": "/weather/static/media/joshua-reddekopp-unsplash.c6b0f370a82da27ed359.jpg",
+    "static/media/taylor-van-riper-unsplash.jpg": "/weather/static/media/taylor-van-riper-unsplash.8374b7e8a91c2dfc1e51.jpg",
+    "static/media/loading.gif": "/weather/static/media/loading.90672f1deffccbcdf4f1.gif",
     "index.html": "/weather/index.html",
-    "main.8a0729ea.css.map": "/weather/static/css/main.8a0729ea.css.map",
-    "main.cdfd2365.js.map": "/weather/static/js/main.cdfd2365.js.map",
+    "main.1224c878.css.map": "/weather/static/css/main.1224c878.css.map",
+    "main.0255314b.js.map": "/weather/static/js/main.0255314b.js.map",
     "453.97127cc3.chunk.js.map": "/weather/static/js/453.97127cc3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8a0729ea.css",
-    "static/js/main.cdfd2365.js"
+    "static/css/main.1224c878.css",
+    "static/js/main.0255314b.js"
   ]
 }
