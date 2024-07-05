@@ -103,7 +103,6 @@ function weatherIcon(number) {
 function TopArea (props) {
         if (props.weather) {
             const currentDate = new Date();
-            const hours = currentDate.getHours();
 
             const temps = props.weather.hourly.temperature_2m;
 
@@ -120,7 +119,7 @@ function TopArea (props) {
             return (
                 <div className="coloring border-solid flex flex-col rounded-xl p-3 gap-y-3 justify-center" style={{backgroundColor: `${props.bgcolor}`}}>
                     <h1 className="text-center text-4xl">{props.city}</h1>
-                    <h2 className="text-center text-7xl">{Math.round(temps[hours])}°F</h2>
+                    <h2 className="text-center text-7xl">{Math.round(temps[props.hours])}°F</h2>
                     <p className="text-center text-5xl">{condition}</p>
                     <div className="flex flex-row justify-center">
                         <p className="text-center text-2xl">H: {Math.round(hi)}°F<a className="invisible text-2xl">--</a>L: {Math.round(lo)}°F<a className="invisible text-2xl">-</a></p>
